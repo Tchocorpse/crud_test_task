@@ -12,4 +12,8 @@ RUN apt-get update \
 COPY ./requirements.txt /
 RUN pip install -r /requirements.txt
 
+COPY ./dockerfiles/django/start /start
+RUN sed -i 's/\r$//g' /start
+RUN chmod +x /start
+
 WORKDIR /app
