@@ -1,7 +1,7 @@
 # crud_test_task
 
 ## Prerequsites
-Developed and tested in Linux (Ubuntu) environment only. Requires `git` and `docker` to be installed. 
+Developed and tested in Linux (Ubuntu) environment only. Requires `git`, `docker` and `docker-compose` version 1.29 or higher to be installed. 
 
 ## Project setup and dev server
 ```

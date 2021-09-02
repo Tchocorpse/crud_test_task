@@ -7,7 +7,6 @@ from images.models import Image, Commentary
 
 class GetStatTest(APITestCase):
     def setUp(self):
-
         self.url_pattern = "http://0.0.0.0:8000/stat/"
         self.test_num = 3
         self.mock_image_count = 1
@@ -36,15 +35,15 @@ class GetStatTest(APITestCase):
     def test_correct_operation(self):
         response = self.client.get(self.url_pattern)
 
-        occupied_volume_raw = 0
+        occupied_size_raw = 0
         for image in self.images:
-            occupied_volume_raw += image.image_size
-        occupied_volume = round(occupied_volume_raw / 1048576, 3)
+            occupied_size_raw += image.image_size
+        occupied_size = round(occupied_size_raw / 1048576, 3)
 
         test_dict = {
             "images_count": self.test_num,
             "unique_images_count": self.mock_image_count,
-            "occupied_volume": occupied_volume,
+            "occupied_size": occupied_size,
             "comment_count": self.test_num * self.test_num,
             "unique_comment_count": self.test_num * self.mock_image_count,
         }
