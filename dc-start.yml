@@ -26,6 +26,8 @@ services:
     depends_on:
       - postgres
     container_name: django_test_crud
+    profiles:
+      - runserver
     volumes:
       - .:/app:z
     ports:
@@ -39,10 +41,10 @@ services:
     depends_on:
       - postgres
     container_name: django_test_crud_autotesting
-    profiles:
-      - autotesting
     volumes:
       - .:/app:z
     ports:
-      - "8000:8000"
-    command: ./dockerfiles/django/start-tests
+      - "8001:8001"
+    profiles:
+      - test
+    command: /start-tests

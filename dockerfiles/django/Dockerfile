@@ -16,4 +16,8 @@ COPY ./dockerfiles/django/start /start
 RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
 
+COPY ./dockerfiles/django/start-tests /start-tests
+RUN sed -i 's/\r$//g' /start-tests
+RUN chmod +x /start-tests
+
 WORKDIR /app

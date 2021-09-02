@@ -7,11 +7,13 @@ Developed and tested in Linux (Ubuntu) environment only. Requires `git`, `docker
 ```
 git clone 
 cd ./crud_test_task
-docker-compose -f dc-start.yml build
-docker-compose -f dc-start.yml up
+docker-compose --profile test --profile runserver -f dc-start.yml build
+docker-compose --profile runserver -f dc-start.yml up
 ```
 ### Autotesting
-`docker-compose -f dc-start.yml run django-autotests`
+```
+docker-compose --profile test -f dc-start.yml up
+```
 
 ## API reference
 API reference is available at `/swagger`
